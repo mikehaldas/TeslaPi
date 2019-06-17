@@ -22,11 +22,12 @@ GPIO.setup(ALARM_IN, GPIO.IN, GPIO.PUD_UP)
 
 # setup LED. Handy when developing & testing
 GPIO.setup(LED, GPIO.OUT) # removed this line if you do not setup the LED
-GPIO.output(LED, False) # removed this line if you do not setup the LED
+#GPIO.output(LED, False) # removed this line if you do not setup the LED
+GPIO.output(LED, GPIO.LOW) # removed this line if you do not setup the LED
 
-# setup strobe
-GPIO.setup(STROBE, GPIO.OUT) # removed this line if you do not setup the LED
-GPIO.output(STROBE, True) # removed this line if you do not setup the LED
+# setup alarm strobe light
+GPIO.setup(STROBE, GPIO.OUT) # removed this line if you do not setup the STROBE
+GPIO.output(STROBE, GPIO.HIGH) # removed this line if you do not setup the STROBE
 
 # Tesla API setup
 print "Connecting to Tesla API...\n"
@@ -77,11 +78,10 @@ try:
 
 		# motion detector alarm received
 		if GPIO.input(ALARM_IN):
-			GPIO.output(LED, True) # turn LED on
-			GPIO.output(STROBE, True) # turn STROBE on
+			GPIO.output(LED, GPIO.HIGH) # turn LED on
+			GPIO.output(STROBE, GPIO.LOW) # turn STROBE on
 			today = datetime.date.today()
 			thetime = datetime.datetime.now().time()
-#			print "---------------------------------\n"
 			print "Motion Detected on", today.strftime('%b %d %Y'), "at", thetime.strftime('%X'), "\n"
 
 			if (thetime > datetime.time(BEGIN_HOUR) and thetime < datetime.time(END_HOUR)):
@@ -120,8 +120,8 @@ try:
 
 			print "Alarm Delay is ", ALARM_RESET_DELAY, " seconds...\n"
 			time.sleep(ALARM_RESET_DELAY)
-			GPIO.output(LED, False) # turn LED off
-			GPIO.output(STROBE, False) # turn STROBE off
+			GPIO.output(LED, GPIO.LOW) # turn LED off
+			GPIO.output(STROBE, GPIO.HIGH) # turn STROBE off
 			print "Alarm Ready...\n"
 			print "---------------------------------\n"
 
