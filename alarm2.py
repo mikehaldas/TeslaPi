@@ -41,8 +41,8 @@ FLASH_DELAY = 1 # delay (in seconds) between headlight flashes
 BEGIN_HOUR = 12 # hour to begin monitoring
 END_HOUR = 18 # hour to end monitoring
 
-ALARM_CYCLE_TIMER = 60 # number of seconds that motion must continue in or another event must occur in to increment the alarm cycle
-ACTIVATE_HORN = 0 # enable honk horn
+ALARM_CYCLE_TIMER = 60 # number of seconds that motion must continue for (or another event must occur in) in order to increment the alarm cycle
+ACTIVATE_HORN = 0 # enable horn honking in WARNING and PANIC alarms
 WARNING_HORN_ALARM_THRESHOLD = 3 # number of alarm cycles to trigger warning horn alarm
 PANIC_HORN_ALARM_THRESHOLD = 5 # number of alarm cycles to trigger panic horn alarm
 WARNING_HONKS = 1 # numner of time to honk horn during warning alarm
@@ -99,7 +99,7 @@ try:
 				print "Seconds since first alarm trigger:", seconds_since_first_alarm, "\n"
 				if (seconds_since_first_alarm < ALARM_CYCLE_TIMER):
 
-					# if we have reached the WARNING or PANIC threshold, Honk the horn!
+					# if we have reached WARNING or PANIC thresholds, take action!
 					if (alarm_cycle_count >= PANIC_HORN_ALARM_THRESHOLD):
 						print "Send Panic Horn Alarm to Tesla...\n"
 						honk_horn(PANIC_HONKS)
@@ -116,7 +116,7 @@ try:
 					print "More than", ALARM_CYCLE_TIMER, "seconds since first alarm. Resetting cycle.\n"
 					alarm_cycle_count = 0
 			else:
-				print "Outside of monitoring time. DO NOT send alarm.\n"
+				print "Outside of monitoring time range. DO NOT send alarm.\n"
 
 			print "Alarm Delay is ", ALARM_RESET_DELAY, " seconds...\n"
 			time.sleep(ALARM_RESET_DELAY)
