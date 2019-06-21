@@ -9,6 +9,15 @@ your Raspbery Pi follow these steps. Please note that before you run the program
   <li>Open a terminal window.</li>
   <li>wget https://github.com/gglockner/teslajson/archive/master.zip</li>
   <li>unzip master.zip</li>
+  <li>cd teslajson-master</li>
+  <li>sudo python setup.py install</li>
+  <li>cd ..</li>
+  <li>rm master.zip</li>
+  <li>wget https://github.com/mikehaldas/TeslaPi/archive/master.zip</li>
+  <li>unzip master.zip</li>
+  <li>cd TeslaPi-master</li>
+  <li>Edit the vars.py file. You should enter your user ID and password that you use on the teslamotors.com website for the USERID and PASS variables, then save the file and exit.</li> 
+  
 </ol>
 <h2>Raspberry Pi / Motion Sensor Wiring</h2>
 <img src="https://www.cctvcamerapros.com/v/images/RPi/Raspberry-Pi-Motion-Sensor-Alarm.jpg" alt="Raspberry Pi Motion Sensor Alarm">
