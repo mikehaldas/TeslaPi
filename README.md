@@ -23,4 +23,4 @@ This is how it is wired.
 </ol>
   <hr>
 <h2>Tesla API Integration</h2>
-The integration with the Telsa API is done using the TeslaJSON API written by 
+The integration with the Telsa API is done using the [TeslaJSON API written by Greg Glockner](https://github.com/gglockner/teslajson).
