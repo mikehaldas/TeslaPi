@@ -3,6 +3,13 @@ TelsaPi is a security alarm project that integrates an outdoor motion sensor wit
 <br><br>
 Written by Mike Haldas
 <hr>
+<h2>Installation</h2>
+your Raspbery Pi follow these steps. Please note that before you run the program, you should also complete the wiring setup in the next section.
+<ol>
+  <li>Open a terminal window.</li>
+  <li>wget https://github.com/gglockner/teslajson/archive/master.zip</li>
+  <li>unzip master.zip</li>
+</ol>
 <h2>Raspberry Pi / Motion Sensor Wiring</h2>
 <img src="https://www.cctvcamerapros.com/v/images/RPi/Raspberry-Pi-Motion-Sensor-Alarm.jpg" alt="Raspberry Pi Motion Sensor Alarm">
 Here is a link to the outdoor motion sensor that was used to test this project. Please note that it is shown in the above wiring diagram with the front cover removed to show the location of the power and output terminals. https://www.cctvcamerapros.com/PIR-Outdoor-Motion-Sensor-p/takex-ms-100e.htm
