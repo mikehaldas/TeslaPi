@@ -4,6 +4,8 @@ TelsaPi is a security alarm project that integrates an outdoor motion sensor wit
 Written by Mike Haldas
 <hr>
 <h2>Installation</h2>
+Integration with the Telsa API is done using the TeslaJSON API wrapper written by Greg Glockner. (https://github.com/gglockner/teslajson).
+
 Open the terminal program on your Raspbery Pi run the following commands. Please note that before you run the program, you should also complete the wiring setup in the next section.
 <ol>
   <li>wget https://github.com/gglockner/teslajson/archive/master.zip</li>
@@ -33,5 +35,13 @@ This is how it is wired.
   <li>The Raspberry Pi must be connected to an Internet connection either via WIFI or the hard wired Ethernet port.</li>
 </ol>
   <hr>
-<h2>Tesla API Integration</h2>
-The integration with the Telsa API is done using the TeslaJSON API written by Greg Glockner. (https://github.com/gglockner/teslajson).
+  <h2>TelsaPi Alarm System Logic</h2>
+  The logic of the TeslaPi program works as follows.
+  <ul>
+  <li>After you run TeslaPi.py, a connection is initiated to your Tesla</li>
+  <li>The program waits for the motion detector to sense motion.</li>
+  <li>When motion is detected, the RaspBerry Pi wakes up your Tesla and flashed the headlights.</li>
+  <li>If motion continues to be detected or if detected again within the time set by ALARM_CYCLE_TIMER, the alarm cycle is escalated.</li>
+  <li>If the alarm cycle reaches 3, the Raspberry Pi also honks the Tesla's horn</li>
+  </ul>
+
