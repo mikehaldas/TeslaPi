@@ -36,12 +36,12 @@ This is how it is wired.
 </ol>
   <hr>
   <h2>TelsaPi Alarm System Logic</h2>
-  The logic of the TeslaPi program works as follows.
+  There are a lot of comments in the TeslaPi.py program that explain the logic of the applications and how to use the variables to The logic of the TeslaPi program works as follows.
   <ul>
   <li>After you run TeslaPi.py, a connection is initiated to your Tesla</li>
   <li>The program waits for the motion detector to sense motion.</li>
   <li>When motion is detected, the RaspBerry Pi wakes up your Tesla and flashed the headlights.</li>
   <li>If motion continues to be detected or if detected again within the time set by ALARM_CYCLE_TIMER, the alarm cycle is escalated.</li>
-  <li>If the alarm cycle reaches 3, the Raspberry Pi also honks the Tesla's horn</li>
+  <li>If the alarm cycle reaches 3, the Raspberry Pi honks the Tesla's horn (in addition to flashing the headlights).</li>
   </ul>
 
