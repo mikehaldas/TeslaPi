@@ -63,7 +63,7 @@ escalation_lvl = 0
 
 # main program
 try:
-# setup an indefinite loop that looks for the motion detector to open the relay
+# setup an indefinite loop that looks for the motion detector to trigger alarms
 	while True:
 
 		# motion detector alarm received
@@ -80,7 +80,7 @@ try:
 					print "First alarm cycle", first_alarm_datetime, "\n"
 
 				print "Alarm escalation level:", escalation_lvl,  "\n" 
-				print "Wake up Telsa...\n"
+				print "Waking up Telsa...\n"
 				v.wake_up()
 
 				seconds_since_first_alarm = compare_time(first_alarm_datetime)
@@ -117,7 +117,7 @@ try:
 
 			print "Alarm Delay is ", ALARM_RESET_DELAY, " seconds...\n"
 			time.sleep(ALARM_RESET_DELAY)
-			# after a short delay, the motion sensor is ready again.
+			# after a short delay, the motion sensor is ready again. Some motion detectors need this, some don't
 			print "Alarm Ready...\n"
 			print "---------------------------------\n"
 
