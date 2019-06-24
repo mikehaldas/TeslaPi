@@ -22,6 +22,8 @@ Open the terminal program on your Raspbery Pi run the following commands. Please
   If you want to test the API communication with your Tesla before you wire the motion detector to your Raspberry Pi, you can run the following command: python gps.py
   
   This will connect to your car and print the GPS longitute and lattitute. If the program gives you an error the first time you run it, try to run it again. If you car is sleeping the first time it is run, there may be an error. This is a bug that needs to be fixed.
+  
+  When you are ready to run TeslaPi, use the following command: python TeslaPi.py
 
 <h2>Raspberry Pi / Motion Sensor Wiring</h2>
 <img src="https://www.cctvcamerapros.com/v/images/RPi/Raspberry-Pi-Motion-Sensor-Alarm.jpg" alt="Raspberry Pi Motion Sensor Alarm">
@@ -36,12 +38,14 @@ This is how it is wired.
 </ol>
   <hr>
   <h2>TelsaPi Alarm System Logic</h2>
-  There are a lot of comments in the TeslaPi.py program that explain the logic of the applications and how to use the variables to The logic of the TeslaPi program works as follows.
+  There are a lot of comments in the TeslaPi.py program that explain the logic of the application. The program basically works as follows.
   <ul>
-  <li>After you run TeslaPi.py, a connection is initiated to your Tesla</li>
+  <li>After you run TeslaPi.py, a connection is initiated to your Tesla.</li>
   <li>The program waits for the motion detector to sense motion.</li>
-  <li>When motion is detected, the RaspBerry Pi wakes up your Tesla and flashed the headlights.</li>
-  <li>If motion continues to be detected or if detected again within the time set by ALARM_CYCLE_TIMER, the alarm cycle is escalated.</li>
-  <li>If the alarm cycle reaches 3, the Raspberry Pi honks the Tesla's horn (in addition to flashing the headlights).</li>
-  </ul>
+  <li>When motion is detected, an alarm cycle begins.</li>
+  <li>An alarm cycle consists of a duration and 5 escalation levels.</li>
+  <li>Each escalation level has it's own set of alarm actions that can be easily modified. For example: level 1 - flash headlight 3x, level 2, flash headlights 3x and beep horn 1x, level 3 - flash lights 5x and beep horn 2x, etc.</li>
+  <li>If motion is continuous or occurs again within the alarm cycle threshold, the escalation level is incremented.</li>
+  <li>The escalation level resets after level 5 or if the alarm cycle threshold time has passed.</li>
+  
 
