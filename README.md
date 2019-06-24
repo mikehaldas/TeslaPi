@@ -18,12 +18,14 @@ Open the terminal program on your Raspbery Pi run the following commands. Please
   <li>unzip master.zip</li>
   <li>cd TeslaPi-master</li>
   <li>Edit the vars.py file. You should enter your user ID and password that you use on the teslamotors.com website for the USERID and PASS variables, then save the file and exit.</li> 
+  <li>To start the program, python TeslaPi.py</li>
   </ol>
+  
   If you want to test the API communication with your Tesla before you wire the motion detector to your Raspberry Pi, you can run the following command: python gps.py
   
-  This will connect to your car and print the GPS longitute and lattitute. If the program gives you an error the first time you run it, try to run it again. If you car is sleeping the first time it is run, there may be an error. This is a bug that needs to be fixed.
+  This will connect to your car and print the GPS longitute and lattitute. If the program gives you an error the first time you run it, try to run it again. If you car is sleeping the first time it is run and takes a while to wake up, there may be an error. This is a bug that needs to be fixed. Try to run it again.
   
-  When you are ready to run TeslaPi, use the following command: python TeslaPi.py
+  The gps.py script will be used in the future to setup GPS location verification of your Tesla to determine if it should be used in the alarm. For example, you may not want to flash your lights and sound your horn unless the car is parked in the lcoation to be effective for the alarm.
 
 <h2>Raspberry Pi / Motion Sensor Wiring</h2>
 <img src="https://www.cctvcamerapros.com/v/images/RPi/Raspberry-Pi-Motion-Sensor-Alarm.jpg" alt="Raspberry Pi Motion Sensor Alarm">
