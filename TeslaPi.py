@@ -4,8 +4,8 @@ import time
 import datetime
 import vars
 
-# define pins
-MOTION_SENSOR = 16 # motion detector input
+# define GPIO pins
+MOTION_SENSOR = 16 # PIR motion sensor input
 
 # setup GPIO using Broadcom SOC channel numbering
 GPIO.setmode(GPIO.BCM)
@@ -24,22 +24,16 @@ v = c.vehicles[0] # vehicles is an array. This assumes you only own one Tesla in
 
 # Alarm rules
 ALARM_RESET_DELAY = 2 # it may take a few seconds for the motion detectors to reset
-NUM_FLASHES = 2 # number of times you want the headlights to flash per alarm cycle
 FLASH_DELAY = 1 # delay (in seconds) between headlight flashes in the alarm cycle
-BEGIN_HOUR = 12 # hour to begin monitoring. Ex. 23 = start at 11:00pm
-END_HOUR = 18 # hour to end monitoring. Ex. 6 = end at 6:00am
-
+MONITORING_BEGIN_HOUR = 12 # hour to begin monitoring. Ex. 23 = start at 11:00pm
+MONITORING_END_HOUR = 18 # hour to end monitoring. Ex. 6 = end at 6:00am
 ALARM_CYCLE_TIMER = 60 # number of seconds that motion must continue for (or another event must occur in) in order to increment the alarm cycle
-ACTIVATE_HORN = 0 # enable horn honking in WARNING and PANIC alarms. 0 = off, 1 = on
-WARNING_HORN_ALARM_THRESHOLD = 3 # trigger warning horn alarm on this cycle
-PANIC_HORN_ALARM_THRESHOLD = 5 # trigger panic horn alarm on this cycle
-WARNING_HONKS = 1 # number of times to honk horn during a warning alarm
-PANIC_HONKS = 3 # number of times to honk horn during  a panic alarm
+ACTIVATE_HORN = 0 # enable/disable horn honking. Nice to turn off when developing. 0 = off, 1 = on
 
 # functions
-def flash_headlights():
-	for x in range(NUM_FLASHES):
-		print "Flash Lights: ", x+1, " of ", NUM_FLASHES, "\n"
+def flash_headlights(num_flashes):
+	for x in range(num_flashes):
+		print "Flash Lights: ", x+1, " of ", num_flashes, "\n"
 		r = v.command('flash_lights')
 		time.sleep(FLASH_DELAY)
 
@@ -56,8 +50,8 @@ def compare_time(past_time):
 	return diff_seconds
 
 # keep track of the number of times an alarm was triggered in the current cycle
-# this is used to escalate the alarm level in a cycle. Ex. WARNING and PANIC horm alarms
-alarm_cycle_count = 0
+# this is used to escalate the alarm level in a cycle. 
+escalation_lvl = 0
 
 # main program
 try:
@@ -70,14 +64,14 @@ try:
 			thetime = datetime.datetime.now().time()
 			print "Motion Detected on", today.strftime('%b %d %Y'), "at", thetime.strftime('%X'), "\n"
 
-			if (thetime > datetime.time(BEGIN_HOUR) and thetime < datetime.time(END_HOUR)):
+			if (thetime > datetime.time(MONITORING_BEGIN_HOUR) and thetime < datetime.time(MONITORING_END_HOUR)):
 				print "In time monitoring range...\n"
-				alarm_cycle_count += 1
-				if (alarm_cycle_count == 1):
+				escalation_lvl += 1
+				if (escalation_lvl == 1):
 					first_alarm_datetime = datetime.datetime.now()
 					print "First alarm cycle", first_alarm_datetime, "\n"
 
-				print "Alarm cycle count:", alarm_cycle_count,  "\n" 
+				print "Alarm escalation level:", escalation_lvl,  "\n" 
 				print "Wake up Telsa...\n"
 				v.wake_up()
 
@@ -85,22 +79,31 @@ try:
 				print "Seconds since first alarm trigger:", seconds_since_first_alarm, "\n"
 				if (seconds_since_first_alarm < ALARM_CYCLE_TIMER):
 
-					# if we have reached WARNING or PANIC thresholds, take action!
-					if (alarm_cycle_count >= PANIC_HORN_ALARM_THRESHOLD):
-						print "Send Panic Horn Alarm to Tesla...\n"
-						honk_horn(PANIC_HONKS)
-						print "Resetting alarm cycle count...\n"
-						alarm_cycle_count = 0
-					elif (alarm_cycle_count >= WARNING_HORN_ALARM_THRESHOLD):
-						print "Send Warning Horn Alarm to Tesla...\n"
-						honk_horn(WARNING_HONKS)
+					# Alarm Escalation levels
+					if (escalation_lvl == 1):
+						flash_headlights(3)
 
-					# always flash headlights regardless of alarm_cycle_count
-					print "Sending Headlight Alarm to Tesla...\n"
-					flash_headlights()
+					elif (escalation_lvl == 2):
+						flash_headlights(3)
+
+					elif (escalation_lvl == 3):
+						honk_horn(1)
+						flash_headlights(3)
+
+					elif (escalation_lvl == 4):
+						honk_horn(2)
+						flash_headlights(3)
+
+					elif (escalation_lvl == 5):
+						honk_horn(3)
+						flash_headlights(3)
+
+						print "Resetting alarm cycle count...\n"
+						escalation_lvl = 0
+						
 				else:
 					print "More than", ALARM_CYCLE_TIMER, "seconds since first alarm. Resetting cycle.\n"
-					alarm_cycle_count = 0
+					escalation_lvl = 0
 			else:
 				print "Outside of monitoring time range. DO NOT send alarm.\n"
 
