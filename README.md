@@ -8,12 +8,13 @@ Written by Mike Haldas
   <li>TeslaPi.py - this is the main project file that runs all of the alarm code.</li>
   <li>vars.py - I wanted to keep the Tesla API login and password in a separate file so I would not accidentally upload updates to TelsaPi.py with my login credentials in it.</li>
   <li>gps.py - simple script that logs into the Tesla API and gets the current GPS longitute and lattitute location of your car. I will use this in the future when I implement GPS location checking into the TeslaPi project.</li>
+  </ul>
 <hr>
 <h2>Installation</h2>
 Integration with the Telsa API is done using the TeslaJSON API wrapper written by Greg Glockner. (https://github.com/gglockner/teslajson).
 
 Open the terminal program on your Raspbery Pi run the following commands. Please note that before you run the program, you should also complete the wiring setup in the next section.
-<ul>
+<ol>
   <li>wget https://github.com/gglockner/teslajson/archive/master.zip</li>
   <li>unzip master.zip</li>
   <li>cd teslajson-master</li>
@@ -25,7 +26,7 @@ Open the terminal program on your Raspbery Pi run the following commands. Please
   <li>cd TeslaPi-master</li>
   <li>Edit the vars.py file. You should enter your user ID and password that you use on the teslamotors.com website for the USERID and PASS variables, then save the file and exit.</li> 
   <li>To start the program, python TeslaPi.py</li>
-  </ul>
+  </ol>
   
   If you want to test the API communication with your Tesla before you wire the motion detector to your Raspberry Pi, you can run the following command: python gps.py
   
