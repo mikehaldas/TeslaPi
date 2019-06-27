@@ -65,5 +65,9 @@ This is how it is wired.
   <li>Each escalation level has it's own set of alarm actions that can be easily modified. For example: level 1 - flash headlight 3x, level 2, flash headlights 3x and beep horn 1x, level 3 - flash lights 5x and beep horn 2x, etc.</li>
   <li>If motion is continuous or occurs again within the alarm cycle threshold, the escalation level is incremented.</li>
   <li>The escalation level resets after level 5 or if the alarm cycle threshold time has passed.</li>
-  
+  </ul>
+  <hr>
+  <h2>Disclosure and Use</h2>
+  <p>Please note that I would not consider this a production ready security application by any means. I created this project for fun shortly after I took delivery of my Model 3 Tesla. Please use it with that in mind and at your own risk please.
+  </p>
 
