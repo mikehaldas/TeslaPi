@@ -11,7 +11,7 @@ alt="Tesla API Security Alarm Priject with Raspberry Pi"/></a>
   <p>
   Watch this <a href="https://www.youtube.com/watch?v=XUymnw3rFOk" target="_blank">YouTube video to see a demo of the Tesla Pi project</a>.
   </p>
-
+<hr>
 <h2>Project Files</h2>
 <ul>
   <li>TeslaPi.py - this is the main project file that runs all of the alarm code.</li>
