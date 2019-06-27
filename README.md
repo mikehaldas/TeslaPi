@@ -3,6 +3,12 @@ TelsaPi is a security alarm project that integrates an outdoor motion sensor wit
 <br><br>
 Written by Mike Haldas
 <hr>
+<h2>Project Files</h2>
+<ul>
+  <li>TeslaPi.py - this is the main project file that runs all of the alarm code.</li>
+  <li>vars.py - I wanted to keep the Tesla API login and password in a separate file so I would not accidentally upload updates to TelsaPi.py with my login credentials in it.</li>
+  <li>gps.py - simple script that logs into the Tesla API and gets the current GPS longitute and lattitute location of your car. I will use this in the future when I implement GPS location checking into the TeslaPi project.</li>
+<hr>
 <h2>Installation</h2>
 Integration with the Telsa API is done using the TeslaJSON API wrapper written by Greg Glockner. (https://github.com/gglockner/teslajson).
 
