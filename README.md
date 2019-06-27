@@ -49,10 +49,10 @@ Here is a link to the outdoor motion sensor that was used to test this project. 
 <br>
 This is how it is wired.
 <ol>
-  <li>The outputs of the motion sensor are wired to GPIO 16 pin and a ground pin.</li>
+  <li>The outputs of the motion sensor are wired to GPIO 16 pin and a ground pin on the Raspberry Pi.</li>
   <li>A 12V DC power supply is used to power the motion detector.</li>
   <li>Although not pictured, the Raspberry Pi obviously also needs to be connected to a power source.</li>
-  <li>The Raspberry Pi must be connected to an Internet connection either via WIFI or the hard wired Ethernet port.</li>
+  <li>The Raspberry Pi must be connected to an Internet connection, so that it can communicate with the Tesla API.</li>
 </ol>
   <hr>
   <h2>TelsaPi Alarm System Logic</h2>
