@@ -13,7 +13,7 @@ Written by Mike Haldas
 Integration with the Telsa API is done using the TeslaJSON API wrapper written by Greg Glockner. (https://github.com/gglockner/teslajson).
 
 Open the terminal program on your Raspbery Pi run the following commands. Please note that before you run the program, you should also complete the wiring setup in the next section.
-<ol>
+<ul>
   <li>wget https://github.com/gglockner/teslajson/archive/master.zip</li>
   <li>unzip master.zip</li>
   <li>cd teslajson-master</li>
@@ -25,7 +25,7 @@ Open the terminal program on your Raspbery Pi run the following commands. Please
   <li>cd TeslaPi-master</li>
   <li>Edit the vars.py file. You should enter your user ID and password that you use on the teslamotors.com website for the USERID and PASS variables, then save the file and exit.</li> 
   <li>To start the program, python TeslaPi.py</li>
-  </ol>
+  </ul>
   
   If you want to test the API communication with your Tesla before you wire the motion detector to your Raspberry Pi, you can run the following command: python gps.py
   
