@@ -3,6 +3,15 @@ TelsaPi is a security alarm project that integrates an outdoor motion sensor wit
 <br><br>
 Written by Mike Haldas
 <hr>
+<h2>Video Demo</h2>
+<p>
+  <a href="https://www.youtube.com/watch?v=XUymnw3rFOk" target="_blank"><img src="https://videos.cctvcamerapros.com/wp-content/files/Tesla-API-Security-Alarm-Project-with-Raspberry-Pi.jpg" 
+alt="Tesla API Security Alarm Priject with Raspberry Pi"/></a>
+  </p>
+  <p>
+  Watch this <a href="https://www.youtube.com/watch?v=XUymnw3rFOk" target="_blank">YouTube video to see a demo of the Tesla Pi project</a>.
+  </p>
+
 <h2>Project Files</h2>
 <ul>
   <li>TeslaPi.py - this is the main project file that runs all of the alarm code.</li>
