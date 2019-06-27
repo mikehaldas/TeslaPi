@@ -68,6 +68,6 @@ This is how it is wired.
   </ul>
   <hr>
   <h2>Disclosure and Use</h2>
-  <p>Please note that I would not consider this a production ready security application by any means. I created this project for fun shortly after I took delivery of my Model 3 Tesla. Please use it with that in mind and at your own risk please.
+  <p>Please note that I would not consider this a production ready security application by any means. I created this project for fun shortly after I took delivery of my Model 3 Tesla. Please use it with that in mind and at your own risk.
   </p>
 
