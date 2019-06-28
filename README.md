@@ -20,7 +20,9 @@ alt="Tesla API Security Alarm Priject with Raspberry Pi"/></a>
   </ul>
 <hr>
 <h2>Installation</h2>
-Integration with the Telsa API is done using the TeslaJSON API wrapper written by Greg Glockner. (https://github.com/gglockner/teslajson).
+<p>Integration with the Telsa API is done using the TeslaJSON API wrapper written by Greg Glockner. (https://github.com/gglockner/teslajson).</p>
+<p>Greg's library is a pleasure to work with and made it very easy to develop TeslaPi quickly.
+  </p>
 
 Open the terminal program on your Raspbery Pi run the following commands. Please note that before you run the program, you should also complete the wiring setup in the next section.
 <ol>
