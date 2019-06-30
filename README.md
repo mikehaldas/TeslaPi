@@ -72,5 +72,5 @@ This is how it is wired.
   <h2>Disclosure and Use</h2>
   <p>Please note that I would not consider this a production ready security application by any means. I created this project for fun shortly after I took delivery of my Model 3 Tesla. Please use it with that in mind and at your own risk.
   </p>
-  <p>Also, note that this project is not endorsed in any way by Tesla, Inc.</p>
+  <p>This software is provided as-is. This software is not supported by or endorsed by Tesla Inc. Tesla Inc. does not publicly support the underlying JSON API, so this software may stop working at any time. The author makes no guarantee to release an updated version to fix any incompatibilities.</p>
 
