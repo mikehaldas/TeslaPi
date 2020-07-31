@@ -1,5 +1,5 @@
 <h1>TeslaPi</h1>
-TelsaPi is a security alarm project that integrates an outdoor motion sensor with the headlights and horn of a Tesla car. It works with all models. The project uses a Raspberry Pi, an outdoor PIR motion detector, and the Tesla API. If the car cameras were integrated with the API, this project would be way more fun. Hopefully one day. The code for this project is written in the Python programming language.
+TelsaPi is a security alarm project that integrates an outdoor motion sensor with the headlights and horn of a Tesla car. It works with all models. The project uses a Raspberry Pi, an outdoor PIR motion detector, and the Tesla API. If the car's camera and sensors were integrated with the API, this project would be way more fun. Hopefully one day this is available. The code for this project is written in the Python programming language.
 <br><br>
 Written by Mike Haldas
 <hr>
